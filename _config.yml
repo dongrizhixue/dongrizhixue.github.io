@@ -1,0 +1,51 @@
+# 站点的基本信息
+title: 你的博客名称
+email: 你的邮箱地址
+description: > # 这个字段用于描述你的网站，可以是几句话。
+  用几句话写一下你的博客是关于什么的。
+baseurl: "" # 如果你打算在子目录下运行站点（例如 /blog），则在此处指定子目录名。否则留空。
+url: "https://<username>.github.io" # 你的 GitHub Pages 网站的完整 URL
+
+# 社交媒体链接（可选）
+twitter_username: your_twitter_username
+github_username:  your_github_username
+
+# 目录结构
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+
+# 主题设置
+theme: jekyll-theme-minimal # 或者任何其他你喜欢的主题
+
+# Markdown 处理器
+markdown: kramdown
+highlighter: rouge
+
+# 自定义404页面（可选）
+defaults:
+  -
+    scope:
+      path: "" # 适用于所有文件
+      type: "pages" # 只应用于页面
+    values:
+      layout: "default"
+
+# Disqus评论系统集成（如果使用的话）
+disqus:
+  shortname: your_disqus_shortname
+
+# Google Analytics ID（如果使用的话）
+google_analytics: UA-XXXXXXXXX-X
+
+# 自定义Permalink样式
+permalink: /:year/:month/:day/:title/
+
+# 插件（仅限GitHub Pages支持的插件）
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 其他自定义变量（可根据需要添加）
+custom_variable: value
