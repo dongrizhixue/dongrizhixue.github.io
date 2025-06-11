@@ -1,49 +1,55 @@
-# 站点的基本信息
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
 title: 冬天的博客
 email: 853523391@qq.com
-description: > # 这个字段用于描述你的网站，可以是几句话。
-  用几句话写一下你的博客是关于什么的。
-baseurl: "" # 如果你打算在子目录下运行站点（例如 /blog），则在此处指定子目录名。否则留空。
-url: "https://dongrizhixue.github.io" # 你的 GitHub Pages 网站的完整 URL
-
-# 社交媒体链接（可选）
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: dongtian
 github_username:  dongrizhixue
 
-# 目录结构
-exclude:
-  - README.md
-  - LICENSE
-  - CNAME
-
-# 主题设置
-theme: jekyll-theme-minimal # 或者任何其他你喜欢的主题
-
-# Markdown 处理器
-markdown: kramdown
-highlighter: rouge
-
-# 自定义404页面（可选）
-defaults:
-  -
-    scope:
-      path: "" # 适用于所有文件
-      type: "pages" # 只应用于页面
-    values:
-      layout: "default"
-
-# Disqus评论系统集成（如果使用的话）
-disqus:
-  shortname: your_disqus_shortname
-
-# Google Analytics ID（如果使用的话）
-
-# 自定义Permalink样式
-permalink: /:year/:month/:day/:title/
-
-# 插件（仅限GitHub Pages支持的插件）
+# Build settings
+theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
 
-# 其他自定义变量（可根据需要添加）
-custom_variable: value
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
