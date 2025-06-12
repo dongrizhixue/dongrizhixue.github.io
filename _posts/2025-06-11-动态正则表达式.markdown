@@ -26,14 +26,3 @@ private void RemoveOldFiles(string filePath, DateTime time)
     }
 }
 ~~~
-
----
-layout: post
-
-title:  "动态正则表达式"
-
-date:   2025-06-11 22:56:00 +0800
-
-categories: dongrizhixue update
-
----
