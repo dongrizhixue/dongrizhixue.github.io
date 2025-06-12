@@ -1,16 +1,5 @@
 # 在windows中把mysql8.0.3设置为允许外部ip访问
 
----
-layout: post
-
-title:  "在windows中把mysql8.0.3设置为允许外部ip访问"
-
-date:   2025-06-12 09:45:10 +0800
-
-categories: dongrizhixue update
-
----
-
 要在 Windows 系统中设置 MySQL 8.0.3 允许外部 IP 访问，你需要按照以下步骤操作：
 
 1. 登录到 MySQL
