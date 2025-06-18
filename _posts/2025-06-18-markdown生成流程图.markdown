@@ -26,3 +26,8 @@ graph LR
     H -->|生产环境部署| I[正式版本]
     end
 ```
+
+## 方式三：GitLab/GitHub（协作场景）
+
+1. GitLab：原生支持 Mermaid，直接在 .md 文件中粘贴代码即可渲染。
+2. GitHub：需安装浏览器插件（如 Mermaid GitHub）或使用第三方工具
