@@ -27,6 +27,8 @@ graph LR
     end
 ```
 
+![markdown生成流程图](./images/Markdown生成流程图.png)
+
 ## 方式三：GitLab/GitHub（协作场景）
 
 1. GitLab：原生支持 Mermaid，直接在 .md 文件中粘贴代码即可渲染。
