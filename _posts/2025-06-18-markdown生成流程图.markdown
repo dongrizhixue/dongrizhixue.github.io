@@ -11,23 +11,9 @@
 3. 代码如下。
 4. 右键选择 Markdown预览 即可查看流程图。
 
-```mermaid
-graph LR
-    subgraph 日常开发
-    A[开发人员本地开发]
-    end
-    subgraph release分支操作
-    A -->|拉取代码| C(release分支)
-    C -->|新建个人分支| D[release-个人-日期分支]
-    D -->|向release分支合并| C
-    end
-    subgraph 生产上线
-    C -->|测试通过，打版本标签| H[master分支]
-    H -->|生产环境部署| I[正式版本]
-    end
-```
+![markdown生成流程图2](/assets/images/Markdown生成流程图2.png)
 
-![markdown生成流程图]({{site.baseurl}}/assets/images/Markdown生成流程图.png)
+![markdown生成流程图](/assets/images/Markdown生成流程图.png)
 
 ## 方式三：GitLab/GitHub（协作场景）
 
