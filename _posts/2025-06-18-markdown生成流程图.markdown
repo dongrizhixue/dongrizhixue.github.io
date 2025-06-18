@@ -27,7 +27,7 @@ graph LR
     end
 ```
 
-![markdown生成流程图](../_posts/images/Markdown生成流程图.png)
+![markdown生成流程图](images/Markdown生成流程图.png)
 
 ## 方式三：GitLab/GitHub（协作场景）
 
