@@ -1,0 +1,33 @@
+# markdown生成流程图
+
+## 方式一：在线工具
+
+访问 Mermaid 在线编辑器：[mermaid.live地址](https://mermaid.live)
+
+## 方式二：VS Code（本地编辑）
+
+1. 安装插件：搜索安装 Mermaid Markdown Syntax Highlighting 和 Markdown Preview Mermaid Support。
+2. 创建 .md 文件（如 git-flow.md）。
+3. 代码如下。
+4. 右键选择 Markdown预览 即可查看流程图。
+
+```mermaid
+graph LR
+    subgraph 日常开发
+    A[开发人员本地开发]
+    end
+    subgraph release分支操作
+    A -->|拉取代码| C(release分支)
+    C -->|新建个人分支| D[release-个人-日期分支]
+    D -->|向release分支合并| C
+    end
+    subgraph 生产上线
+    C -->|测试通过，打版本标签| H[master分支]
+    H -->|生产环境部署| I[正式版本]
+    end
+```
+
+## 方式三：GitLab/GitHub（协作场景）
+
+1. GitLab：原生支持 Mermaid，直接在 .md 文件中粘贴代码即可渲染。
+2. GitHub：需安装浏览器插件（如 Mermaid GitHub）或使用第三方工具
