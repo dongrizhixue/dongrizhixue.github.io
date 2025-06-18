@@ -21,13 +21,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 添加 Ruby 环境配置
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # GitHub Pages 兼容版本
-          bundler-cache: true # 自动缓存依赖
-      # 在 Setup Ruby 步骤后添加
+          ruby-version: '3.1' # GitHub Pages 当前使用 3.1.x
+          bundler-cache: true
+
+      # 优化缓存配置
       - name: Cache Jekyll build
         uses: actions/cache@v3
         with:
@@ -35,23 +35,30 @@ jobs:
             vendor/bundle
             .jekyll-cache
           key: ${{ runner.os }}-jekyll-${{ hashFiles('**/Gemfile.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-jekyll-
-      # 添加依赖安装
+          restore-keys: |
+            ${{ runner.os }}-jekyll-
+
       - name: Install dependencies
         run: |
-          bundle config set --local path 'vendor/bundle'
+          bundle config path vendor/bundle
           bundle install
 
-      # 保留 Pages 配置
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # 自定义 Jekyll 构建命令
+      # 优化构建命令
       - name: Build with Jekyll
         run: |
-          bundle exec jekyll build \
-          --baseurl "${{ steps.configure-pages.outputs.base_path }}"
+          bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production # 确保使用生产环境配置
+
+      # 添加构建验证步骤
+      - name: Verify build output
+        run: |
+          ls -lh _site
+          [ -f _site/index.html ] || exit 1
+          echo "Build verification passed"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
