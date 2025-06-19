@@ -11,9 +11,9 @@
 3. 代码如下。
 4. 右键选择 Markdown预览 即可查看流程图。
 
-![markdown生成流程图2]({{site.baseurl}}/assets/images/Markdown生成流程图2.png)
+![markdown生成流程图2](https://guangzhichenxi.oss-cn-qingdao.aliyuncs.com/blogImages/markdown%E7%94%9F%E6%88%90%E6%B5%81%E7%A8%8B%E5%9B%BE2.png)
 
-![markdown生成流程图]({{site.baseurl}}/assets/images/Markdown生成流程图.png)
+![markdown生成流程图](https://guangzhichenxi.oss-cn-qingdao.aliyuncs.com/blogImages/Markdown%E7%94%9F%E6%88%90%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
 ## 方式三：GitLab/GitHub（协作场景）
 
