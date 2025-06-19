@@ -1,6 +1,6 @@
 # Gemfile 最顶部添加
 ruby '3.1.7'  # 明确 Ruby 版本
-source "https://mirrors.aliyun.com/rubygems"
+source "https://rubygems.org"
 
 # 锁定 Bundler 版本与 CI 环境一致
 gem 'bundler', '2.4.22'

@@ -74,4 +74,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5  # 升级到 v5
+        uses: actions/deploy-pages@v5.1.0  # 升级到 v5
