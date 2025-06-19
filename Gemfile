@@ -1,8 +1,12 @@
+# Gemfile 最顶部添加
+ruby '3.1.7'  # 明确 Ruby 版本
 source "https://mirrors.aliyun.com/rubygems"
 
-# 使用 github-pages 统一管理依赖（已包含 jekyll、minima 等）
-gem "github-pages", "~> 227", group: :jekyll_plugins
+# 锁定 Bundler 版本与 CI 环境一致
+gem 'bundler', '2.4.22'
 
+# 剩余内容保持不变
+gem "github-pages", "~> 227", group: :jekyll_plugins
 # 如果需要额外插件，放在这里
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
