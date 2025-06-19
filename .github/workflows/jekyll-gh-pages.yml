@@ -14,18 +14,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Setup Ruby
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.4'
           bundler: '2.4.22'
           bundler-cache: true
+      - name: Configure environment
+        run: |
+          echo "GEM_HOME=$(ruby -e 'puts ENV[\"GEM_HOME\"]')" >> $GITHUB_ENV
+          echo "PATH=$(ruby -e 'puts ENV[\"PATH\"]')" >> $GITHUB_ENV
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install      
 
+      - name: Build site
+        run: |
+          bundle exec jekyll build --source . --destination _site              
       - name: Cache Jekyll build
         uses: actions/cache@v3
         with:

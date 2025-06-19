@@ -1,5 +1,4 @@
 GEM
-  #remote: https://mirrors.aliyun.com/rubygems/
   remote: https://rubygems.org/
   specs:
     activesupport (3.2.22.5)
