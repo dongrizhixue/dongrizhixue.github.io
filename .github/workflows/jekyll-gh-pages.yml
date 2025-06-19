@@ -8,11 +8,10 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -20,14 +19,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # GitHub Pages 当前使用 3.1.x
+          ruby-version: '3.1'
+          bundler: '2.4.22'
           bundler-cache: true
 
-      # 优化缓存配置
+      - name: Add Linux platform to lockfile
+        run: |
+          bundle lock --add-platform x86_64-linux
+          bundle install
+
       - name: Cache Jekyll build
         uses: actions/cache@v3
         with:
@@ -37,28 +43,33 @@ jobs:
           key: ${{ runner.os }}-jekyll-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-jekyll-
+            ${{ runner.os }}-
 
       - name: Install dependencies
         run: |
-          bundle config path vendor/bundle
-          bundle install
+          bundle config set --local deployment true
+          bundle config set --local without 'development test'
+          bundle install --jobs 4 --retry 3
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # 优化构建命令
       - name: Build with Jekyll
         run: |
-          bundle exec jekyll build --trace
+          mkdir -p _site
+          bundle exec jekyll build 2>&1 | tee build.log
+          if [ $? -ne 0 ]; then
+            echo "::error::Build failed"
+            tail -n 50 build.log
+            exit 1
+          fi
         env:
-          JEKYLL_ENV: production # 确保使用生产环境配置
+          JEKYLL_ENV: production
 
-      # 添加构建验证步骤
       - name: Verify build output
         run: |
-          ls -lh _site
-          [ -f _site/index.html ] || exit 1
-          echo "Build verification passed"
+          [ -f "_site/index.html" ] || (echo "index.html missing" && exit 1)
+          [ -d "_site/assets" ] || (echo "assets directory missing" && exit 1)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

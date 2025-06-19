@@ -11,7 +11,7 @@
 3. 代码如下。
 4. 右键选择 Markdown预览 即可查看流程图。
 
-![markdown生成流程图2]({{site.baseurl}}/assets/images/Markdown生成流程图2.png)
+![markdown生成流程图2](https://pan.quark.cn/s/4f2043594584)
 
 ![markdown生成流程图]({{site.baseurl}}/assets/images/Markdown生成流程图.png)
 
